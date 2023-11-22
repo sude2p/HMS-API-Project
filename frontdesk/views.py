@@ -195,7 +195,7 @@ class GuestRoomApiView(GenericAPIView):
     filterset_fields = ['guest','room_no']
 
     def get(self, request):
-        queryset = self.get_object()
+        queryset = self.get_queryset()
         filter_queryset = self.filter_queryset(queryset)
         serializer = self.serializer_class(filter_queryset, many=True)
         return Response(serializer.data)
@@ -219,7 +219,7 @@ class GuestRoomApiIdView(GenericAPIView):
         except:
             return Response('Data Not Found')    
         serializer = self.serializer_class(queryset)
-        return Response(serializer)
+        return Response(serializer.data)
     
     def put(self, request, pk):
         queryset = GuestRoom.objects.get(id=pk)
