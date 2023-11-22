@@ -246,6 +246,7 @@ class GuestRoomApiIdView(GenericAPIView):
 
 
 #------------------Group API view----------------#
+
 class GroupApiView(GenericAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer

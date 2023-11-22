@@ -24,7 +24,7 @@ class CustomModelPermission(permissions.BasePermission):
         # Get the type of permission we should be checking based on the HTTP method
         perm_type = self.METHOD_PERMISSIONS.get(request.method, None)
         if not perm_type:
-            return False 
+            return False
 
         # Construct the full permission string
         # app_label = view.queryset.model._meta.app_label
